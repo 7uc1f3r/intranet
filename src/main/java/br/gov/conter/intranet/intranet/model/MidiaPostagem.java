@@ -6,32 +6,33 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Table(name = "perfil_acesso")
-public class PerfilAcesso {
+@Table(name = "midia_postagem")
+public class MidiaPostagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     @NotNull
-    @Size(max = 150)
-    private String nome;
+    @JoinColumn(name = "id_post")
+    private Postagem postagem;
     @NotNull
-    @Size(max = 300)
-    @Column(name = "dsc")
-    private String descricao;
+    @Size(max = 400)
+    @Column(name = "url_midia")
+    private String urlMidia;
     @NotNull
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")
     private Date dtFim;
 
-    public PerfilAcesso() {
+    public MidiaPostagem() {
     }
 
-    public PerfilAcesso(@NotNull @Size(max = 150) String nome, @NotNull @Size(max = 300) String descricao, @NotNull Date dtInicio, Date dtFim) {
+    public MidiaPostagem(@NotNull Postagem postagem, @NotNull String urlMidia, @NotNull Date dtInicio, Date dtFim) {
         this.setId(this.id);
-        this.nome = nome;
-        this.descricao = descricao;
+        this.postagem = postagem;
+        this.urlMidia = urlMidia;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
     }
@@ -44,20 +45,20 @@ public class PerfilAcesso {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Postagem getPostagem() {
+        return postagem;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setPostagem(Postagem postagem) {
+        this.postagem = postagem;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getUrlMidia() {
+        return urlMidia;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setUrlMidia(String urlMidia) {
+        this.urlMidia = urlMidia;
     }
 
     public Date getDtInicio() {

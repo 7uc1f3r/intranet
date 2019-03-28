@@ -24,7 +24,7 @@ public class Postagem {
     @NotNull
     private String titulo;
     @NotNull
-    @Column(name = "desc",columnDefinition = "LONGTEXT")
+    @Column(name = "dsc",columnDefinition = "LONGTEXT")
     private String texto;
     @NotNull
     @Column(name = "dt_inicio")

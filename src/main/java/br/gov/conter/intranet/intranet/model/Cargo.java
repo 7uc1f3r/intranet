@@ -13,7 +13,7 @@ public class Cargo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Column(name = "desc")
+    @Column(name = "dsc")
     @Size(max = 150)
     private String descricao;
     @NotNull

@@ -17,7 +17,7 @@ public class TipoPostagem {
     private String nome;
     @NotNull
     @Size(max = 250)
-    @Column(name = "desc")
+    @Column(name = "dsc")
     private String descricao;
     @NotNull
     @Column(name = "dt_inicio")

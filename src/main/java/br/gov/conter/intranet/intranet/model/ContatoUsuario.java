@@ -6,32 +6,31 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Table(name = "perfil_acesso")
-public class PerfilAcesso {
+@Table(name = "contato_usuario")
+public class ContatoUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
     @NotNull
     @Size(max = 150)
-    private String nome;
-    @NotNull
-    @Size(max = 300)
-    @Column(name = "dsc")
-    private String descricao;
+    private String tipo;
     @NotNull
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")
     private Date dtFim;
 
-    public PerfilAcesso() {
+    public ContatoUsuario() {
     }
 
-    public PerfilAcesso(@NotNull @Size(max = 150) String nome, @NotNull @Size(max = 300) String descricao, @NotNull Date dtInicio, Date dtFim) {
-        this.setId(this.id);
-        this.nome = nome;
-        this.descricao = descricao;
+    public ContatoUsuario(@NotNull Usuario usuario, @NotNull @Size(max = 150) String tipo, @NotNull Date dtInicio, Date dtFim) {
+        this.usuario = usuario;
+        this.tipo = tipo;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
     }
@@ -44,20 +43,20 @@ public class PerfilAcesso {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Date getDtInicio() {
