@@ -9,17 +9,32 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/midiaPostagem")
-public class MidiaPostagem {
+public class MidiaPostagemController {
 
     @Autowired
     private MidiaPostagemRepository midiaPostagemRepository;
 
-    public MidiaPostagem(MidiaPostagemRepository midiaPostagemRepository) {
+    public MidiaPostagemController(MidiaPostagemRepository midiaPostagemRepository) {
         this.midiaPostagemRepository = midiaPostagemRepository;
     }
 
     @GetMapping
     public List<MidiaPostagem> findAll() {
         return midiaPostagemRepository.findAll();
+    }
+
+    @PostMapping
+    private void create(@RequestBody MidiaPostagem midiaPostagem) {
+        midiaPostagemRepository.save(midiaPostagem);
+    }
+
+    @GetMapping("/{id}")
+    private MidiaPostagem findById(@PathVariable Long id) {
+        return midiaPostagemRepository.getOne(id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    private void delete(@PathVariable Long id) {
+        midiaPostagemRepository.deleteById(id);
     }
 }
