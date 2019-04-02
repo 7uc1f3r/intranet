@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -19,7 +21,7 @@ public class Departamento {
     @Column(name = "dsc")
     @Size(max = 300)
     private String descricao;
-    @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

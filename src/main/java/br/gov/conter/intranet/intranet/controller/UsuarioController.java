@@ -1,6 +1,5 @@
 package br.gov.conter.intranet.intranet.controller;
 
-import br.gov.conter.intranet.intranet.model.Departamento;
 import br.gov.conter.intranet.intranet.model.Usuario;
 import br.gov.conter.intranet.intranet.repository.CargoRepository;
 import br.gov.conter.intranet.intranet.repository.DepartamentoRepository;
