@@ -19,7 +19,6 @@ public class Cargo {
     @Column(name = "dsc_cargo")
     @Size(max = 150)
     private String descricao;
-    @NotNull
     @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;

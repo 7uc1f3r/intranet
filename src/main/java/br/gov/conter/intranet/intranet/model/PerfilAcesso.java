@@ -23,7 +23,6 @@ public class PerfilAcesso {
     @Size(max = 300)
     @Column(name = "dsc_perfil_acesso")
     private String descricao;
-    @NotNull
     @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;

@@ -29,7 +29,6 @@ public class Postagem {
     @NotNull
     @Column(name = "desc_post",columnDefinition = "LONGTEXT")
     private String texto;
-    @NotNull
     @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;

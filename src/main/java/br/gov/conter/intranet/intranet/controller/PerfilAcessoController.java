@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/perfilAcesso")
@@ -29,8 +30,8 @@ public class PerfilAcessoController {
     }
 
     @GetMapping("/{id}")
-    public PerfilAcesso findById(@PathVariable Long id) {
-        return perfilAcessoRepository.getOne(id);
+    public Optional<PerfilAcesso> findById(@PathVariable Long id) {
+        return perfilAcessoRepository.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")

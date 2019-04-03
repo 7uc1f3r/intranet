@@ -19,12 +19,11 @@ public class Departamento {
     @NotNull
     @Size(max = 150)
     @Column(name = "nome_departamento")
-    private String name;
+    private String nome;
     @NotNull
     @Column(name = "dsc_departamento")
     @Size(max = 300)
     private String descricao;
-    @NotNull
     @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
@@ -34,9 +33,9 @@ public class Departamento {
     public Departamento() {
     }
 
-    public Departamento(@NotNull @Size(max = 150) String name, @NotNull @Size(max = 300) String descricao, @NotNull Date dtInicio, Date dtFim) {
+    public Departamento(@NotNull @Size(max = 150) String nome, @NotNull @Size(max = 300) String descricao, @NotNull Date dtInicio, Date dtFim) {
         this.setId(this.id);
-        this.name = name;
+        this.nome = nome;
         this.descricao = descricao;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
@@ -50,12 +49,12 @@ public class Departamento {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String name) {
+        this.nome = nome;
     }
 
     public String getDescricao() {

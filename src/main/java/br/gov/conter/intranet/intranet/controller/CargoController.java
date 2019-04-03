@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/cargo")
@@ -32,8 +33,8 @@ public class CargoController {
     }
 
     @GetMapping("/{id}")
-    public Cargo findById(@PathVariable Long id) {
-        return cargoRepository.getOne(id);
+    public Optional<Cargo> findById(@PathVariable Long id) {
+        return cargoRepository.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
