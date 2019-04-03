@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,12 +13,14 @@ public class Cargo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cargo")
     private Long id;
     @NotNull
-    @Column(name = "dsc")
+    @Column(name = "dsc_cargo")
     @Size(max = 150)
     private String descricao;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

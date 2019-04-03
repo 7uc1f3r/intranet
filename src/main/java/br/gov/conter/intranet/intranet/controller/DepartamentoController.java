@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/departamento")
@@ -30,8 +31,8 @@ public class DepartamentoController {
     }
 
     @GetMapping("/{id}")
-    public Departamento findById(@PathVariable Long id) {
-        return departamentoRepository.getOne(id);
+    public Optional<Departamento> findById(@PathVariable Long id) {
+        return departamentoRepository.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")

@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ public class ContatoUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_contato")
     private Long id;
     @ManyToOne
     @NotNull
@@ -18,8 +21,10 @@ public class ContatoUsuario {
     private Usuario usuario;
     @NotNull
     @Size(max = 150)
+    @Column(name = "tipo_contato")
     private String tipo;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

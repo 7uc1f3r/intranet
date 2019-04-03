@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ public class MidiaPostagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_midia_post")
     private Long id;
     @ManyToOne
     @NotNull
@@ -18,9 +21,10 @@ public class MidiaPostagem {
     private Postagem postagem;
     @NotNull
     @Size(max = 400)
-    @Column(name = "url_midia")
+    @Column(name = "url_midia_post")
     private String urlMidia;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

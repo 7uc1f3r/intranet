@@ -11,13 +11,15 @@ public class TipoPostagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo_post")
     private Long id;
     @NotNull
     @Size(max = 100)
+    @Column(name = "nome_tipo_post")
     private String nome;
     @NotNull
     @Size(max = 250)
-    @Column(name = "dsc")
+    @Column(name = "dsc_tipo_post")
     private String descricao;
     @NotNull
     @Column(name = "dt_inicio")

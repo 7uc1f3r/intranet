@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id;
     @ManyToOne
     @NotNull
@@ -26,12 +29,15 @@ public class Usuario {
     private PerfilAcesso perfilAcesso;
     @NotNull
     @Size(max = 200)
+    @Column(name = "nome_usuario")
     private String nome;
     @NotNull
     @Size(max = 50)
+    @Column(name = "login_usuario")
     private String login;
     @NotNull
     @Size(max = 250)
+    @Column(name = "senha_usuario")
     private String senha;
     @NotNull
     @Column(name = "dt_nascimento")
@@ -40,6 +46,7 @@ public class Usuario {
     @Size(max = 400)
     private String urlFoto;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

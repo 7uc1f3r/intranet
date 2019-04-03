@@ -1,5 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,15 +13,18 @@ public class PerfilAcesso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_perfil_acessos")
     private Long id;
     @NotNull
+    @Column(name = "nome_perfil_acesso")
     @Size(max = 150)
     private String nome;
     @NotNull
     @Size(max = 300)
-    @Column(name = "dsc")
+    @Column(name = "dsc_perfil_acesso")
     private String descricao;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")

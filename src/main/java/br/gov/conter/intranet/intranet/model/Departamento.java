@@ -1,6 +1,7 @@
 package br.gov.conter.intranet.intranet.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -13,14 +14,17 @@ public class Departamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_departamento")
     private Long id;
     @NotNull
     @Size(max = 150)
+    @Column(name = "nome_departamento")
     private String name;
     @NotNull
-    @Column(name = "dsc")
+    @Column(name = "dsc_departamento")
     @Size(max = 300)
     private String descricao;
+    @NotNull
     @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;

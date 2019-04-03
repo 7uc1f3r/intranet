@@ -1,5 +1,6 @@
 package br.gov.conter.intranet.intranet.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ public class Postagem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_post")
     private Long id;
     @ManyToOne
     @NotNull
@@ -19,14 +21,16 @@ public class Postagem {
     private Usuario usuario;
     @ManyToOne
     @NotNull
-    @JoinColumn(name = "id_tipo_postagem")
+    @JoinColumn(name = "id_tipo_post")
     private TipoPostagem tipoPostagem;
     @NotNull
+    @Column(name = "titulo_post")
     private String titulo;
     @NotNull
-    @Column(name = "dsc",columnDefinition = "LONGTEXT")
+    @Column(name = "desc_post",columnDefinition = "LONGTEXT")
     private String texto;
     @NotNull
+    @CreationTimestamp
     @Column(name = "dt_inicio")
     private Date dtInicio;
     @Column(name = "dt_fim")
