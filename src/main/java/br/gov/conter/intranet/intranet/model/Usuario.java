@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -51,11 +52,13 @@ public class Usuario {
     private Date dtInicio;
     @Column(name = "dt_fim")
     private Date dtFim;
-
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+    private List<ContatoUsuario> contatoUsuarios;
+    
     public Usuario() {
     }
 
-    public Usuario(@NotNull Cargo cargo, Departamento departamento, PerfilAcesso perfilAcesso, @NotNull @Size(max = 200) String nome, @NotNull @Size(max = 50) String login, @NotNull @Size(max = 250) String senha, @NotNull Date dataNasc, @Size(max = 400) String urlFoto, @NotNull Date dtInicio, Date dtFim) {
+    public Usuario(@NotNull Cargo cargo, @NotNull Departamento departamento, @NotNull PerfilAcesso perfilAcesso, @NotNull @Size(max = 200) String nome, @NotNull @Size(max = 50) String login, @NotNull @Size(max = 250) String senha, @NotNull Date dataNasc, @Size(max = 400) String urlFoto, @NotNull Date dtInicio, Date dtFim, List<ContatoUsuario> contatoUsuarios) {
         this.setId(this.id);
         this.cargo = cargo;
         this.departamento = departamento;
@@ -67,6 +70,7 @@ public class Usuario {
         this.urlFoto = urlFoto;
         this.dtInicio = dtInicio;
         this.dtFim = dtFim;
+        this.contatoUsuarios = contatoUsuarios;
     }
 
     public Long getId() {
@@ -155,5 +159,13 @@ public class Usuario {
 
     public void setDtFim(Date dtFim) {
         this.dtFim = dtFim;
+    }
+
+    public List<ContatoUsuario> getContatoUsuarios() {
+        return contatoUsuarios;
+    }
+
+    public void setContatoUsuarios(List<ContatoUsuario> contatoUsuarios) {
+        this.contatoUsuarios = contatoUsuarios;
     }
 }

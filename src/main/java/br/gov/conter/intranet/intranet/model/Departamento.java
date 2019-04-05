@@ -53,7 +53,7 @@ public class Departamento {
         return nome;
     }
 
-    public void setNome(String name) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
